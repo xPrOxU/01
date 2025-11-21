@@ -30,7 +30,8 @@
                 <tr><td>E-mail</td><td><input type="email"></td></tr>
                 <tr><td>Zgłoszenie</td><td><textarea name="pole" cols="40" rows="10"></textarea></td></tr>
                 <tr><td></td><td><input type="checkbox">Zapoznałem sie z regulaminem</td></tr>
-                <tr><td></td></tr>
+                <td> </td><td><button type="reset" id="reset">Resetuj</button><button type="button" id="submit" onclick="sprawdz()">Prześlij</button></td>
+                </tr> 
             </table>
             <hr>
         </main>
@@ -38,5 +39,36 @@
             <p>Autor strony: WPWPWWWWP</p>
         </footer>
     </div>
+    <script>
+
+
+        function sprawdz()
+        {
+            const imie = document.getElementById('imie').value.toUpperCase();
+            const nazwisko = document.getElementById('nazwisko').value.toUpperCase();
+            const email = document.getElementById('email').value;
+            const zgloszenie = document.getElementById('zgloszenie').value;
+            const wybierz = document.getElementById('wybierz').checked;
+            const reset = document.getElementById('reset');
+            const submit = document.getElementById('submit');
+            const wynik = document.getElementById('wynik');
+
+            if (!wybierz)
+        {
+            wynik.innerHTML="Musisz zapoznać się z regulaminem";
+            wynik.style.color = "red";
+        }
+        else
+        {
+            wynik.innerHTML = imie + " " + nazwisko + "<br>" +
+             "Treść Twojej sprawy: " + zgloszenie
+            wynik.style.color = "navy";
+        }
+         
+        }
+
+
+    </script>
 </body>
+
 </html>
